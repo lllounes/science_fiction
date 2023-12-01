@@ -113,8 +113,12 @@ Extraction2<-Planets|>
 # GRAPH
 
 ```{r}
-ggplot(Extraction1|>group_by(Planet_key)|>summarise(Somme=n()),aes(x=Planet_key,y=Somme)) +
-  geom_bar()
+Table<-Extraction1|>group_by(Planet_key)|>
+  summarise(Somme=n())|>
+  group_by(Somme)|>
+  summarise(s=n())
+ggplot(Table,aes(x=Somme,y=s)) +
+  geom_col()
 ```
 
 
