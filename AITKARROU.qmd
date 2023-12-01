@@ -4,7 +4,11 @@ author: "Lounès AÏT KARROU"
 format: html
 editor: visual
 ---
+
+# MY GITHUB REPOSITORY
+Click [here](https://github.com/lllounes/science_fiction.git) to have access to my GitHub repository. 
 ```{r}
+#| message: false
 library(ggplot2)
 library(dplyr)
 library(tidyr)
@@ -13,12 +17,18 @@ library(here)
 library(vroom)
 ```
 
-
-# Question 1 
-
+# CREATION OF THE DATA FILE
 ```{r}
 dir.create("DATAS")
+```
+
+```{r}
+if (length(list.files("DATAS"))==0) {
 filesstrings::file.move("~/Desktop/subject-2/Planets.csv","DATAS")
+filesstrings::file.move("~/Desktop/subject-2/star_types.csv","DATAS")
+filesstrings::file.move("~/Desktop/subject-2/list+stars.csv","DATAS")
+filesstrings::file.move("~/Desktop/subject-2/Yerkes_luminosity_classes.csv","DATAS")
+}
 ```
 
 
