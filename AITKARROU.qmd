@@ -122,7 +122,7 @@ ggplot(Table,aes(x=Somme,y=s)) +
 ```
 
 
-
+# Question 10 (déjà faite bien avant)
 
 
 
