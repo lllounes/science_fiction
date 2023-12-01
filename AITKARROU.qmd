@@ -16,6 +16,7 @@ library(knitr)
 library(here)
 library(vroom)
 i_am("science_fiction.Rproj")
+
 ```
 
 # CREATION OF THE DATA FILE
@@ -83,6 +84,15 @@ Missing values for `Name`  | `r NumberMiss[2]`
 Missing values for `Star Number`  | `r NumberMiss[3]`
 Missing values for `Relative density`  | `r NumberMiss[5]`
 
+# GRAPHICAL REPRESENTATION
+
+```{r,warning=FALSE}
+ggplot(Planets|>filter(!is.na(Planets$Mass)),aes(x=`relative density`,y=`Mass`))+
+  geom_point() +
+  labs(title = "Representation of the mass of a planet as a function of its density",
+       x="Relative density",
+       y="Mass")
+```
 
 
 
