@@ -15,14 +15,17 @@ library(tidyr)
 library(knitr)
 library(here)
 library(vroom)
+i_am("science_fiction.Rproj")
 ```
 
 # CREATION OF THE DATA FILE
 ```{r}
+#| message: false
 dir.create("DATAS")
 ```
 
 ```{r}
+#| message: false
 if (length(list.files("DATAS"))==0) {
 filesstrings::file.move("~/Desktop/subject-2/Planets.csv","DATAS")
 filesstrings::file.move("~/Desktop/subject-2/star_types.csv","DATAS")
@@ -31,8 +34,25 @@ filesstrings::file.move("~/Desktop/subject-2/Yerkes_luminosity_classes.csv","DAT
 }
 ```
 
+# LOADING THE DATAS
 
+```{r}
+Planets<-vroom(here("DATAS","Planets.csv"))
+#validity of the loading process
+NumberPlanets<-nrow(Planets)
+if (NumberPlanets==998) {Answer='valid'} else {Answer=c('not', ' valid')}
+```
 
+Le number of planets in our main data is equal to `r NumberPlanets`, so the loading is `r Answer`  
+
+```{r}
+#| message: false
+Planets$Planet_key<-as.numeric(Planets$Planet_key)
+Planets$Mass<-as.numeric(Planets$Mass)
+Planets$Star_number<-as.numeric(Planets$Star_number)
+Planets$`relative density`<-as.numeric(Planets$`relative density`)
+Planets$`Radius (Earth)`<-as.numeric(Planets$`Radius (Earth)`)
+```
 
 
 
