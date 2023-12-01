@@ -110,6 +110,12 @@ Extraction2<-Planets|>
   unnest(climat)
 ```
 
+# GRAPH
+
+```{r}
+ggplot(Extraction1|>group_by(Planet_key)|>summarise(Somme=n()),aes(x=Planet_key,y=Somme)) +
+  geom_bar()
+```
 
 
 
