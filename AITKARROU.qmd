@@ -1,0 +1,6 @@
+---
+title: "Data management graded lab"
+author: "Lounès AÏT KARROU"
+format: html
+editor: visual
+---
