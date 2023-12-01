@@ -54,12 +54,34 @@ Planets$`relative density`<-as.numeric(Planets$`relative density`)
 Planets$`Radius (Earth)`<-as.numeric(Planets$`Radius (Earth)`)
 ```
 
+# DESCRIPTION OF THE DATA SET
 
+```{r}
+NumberVariables<-ncol(Planets)
+NumberMiss=vector("numeric",NumberVariables)
+for (i in 1:NumberVariables){
+  NumberMiss[i]=sum(is.na(Planets[,i]))
+}
+NumberVariableMiss=0
+for (i in 1:NumberVariables){
+  if (NumberMiss[i]!=0) {
+    NumberVariableMiss=NumberVariableMiss+1
+  }
+}
+```
 
-
-
-
-
+Study  | Number
+------------- | -------------
+Observation  | `r NumberPlanets`
+Variables  | `r NumberVariables`
+Variables with at least one missing value  | `r NumberVariableMiss`
+Missing values for `Mass`  | `r NumberMiss[4]`
+Missing values for `Radius (Earth)`  | `r NumberMiss[6]`
+Missing values for `Type of terrain`  | `r NumberMiss[7]`
+Missing values for `Panet key`  | `r NumberMiss[1]`
+Missing values for `Name`  | `r NumberMiss[2]`
+Missing values for `Star Number`  | `r NumberMiss[3]`
+Missing values for `Relative density`  | `r NumberMiss[5]`
 
 
 
